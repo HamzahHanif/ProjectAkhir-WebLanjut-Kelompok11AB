@@ -220,7 +220,7 @@
 
     <div class="heroe">
 
-        <h1>Welcome to CodeIgniter LAnding page <?= CodeIgniter\CodeIgniter::CI_VERSION ?></h1>
+        <h1>Welcome to CodeIgniter Kuluk-Kuluk page <?= CodeIgniter\CodeIgniter::CI_VERSION ?></h1>
 
         <h2>The small framework with powerful features</h2>
 
