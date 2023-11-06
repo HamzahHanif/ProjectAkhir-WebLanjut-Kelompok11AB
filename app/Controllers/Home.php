@@ -25,4 +25,13 @@ class Home extends BaseController
     {
         return view('user/tabel');
     }
+
+    public function adminp()
+    {
+        return view('admin-pengurus/index');
+    }
+    public function landing()
+    {
+        return view('landing-page/landing_page');
+    }
 }
