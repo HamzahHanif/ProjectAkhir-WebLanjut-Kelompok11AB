@@ -4,19 +4,23 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Dashboard Admin</title>
+    <title>Corona Admin</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="<?= base_url(); ?>/../../assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>/../../assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <!-- End Plugin css for this page -->
+    <link rel="stylesheet" href="assets/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="<?= base_url(); ?>/../../assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="<?= base_url(); ?>/../../assets/images/favicon.png" />
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
   </head>
   <body>
     <div class="container-scroller">
@@ -48,63 +52,51 @@
           </li>
         </ul>
       </nav>
-       <!-- partial -->
-       <div class="container-fluid">
-        <!-- partial:../../partials/_navbar.html -->
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row">
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
           </div>
           <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
               <span class="mdi mdi-menu"></span>
             </button>
-            <ul class="navbar-nav w-100">
-           
-            </ul>
+            
             <ul class="navbar-nav navbar-nav-right">
-             
-             
-              <li class="nav-item dropdown border-left">
-                
-              
-              </li>
-           
-              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-bs-toggle="dropdown">
                   <div class="navbar-profile">
-                    <img class="img-xs rounded-circle" src="../../assets/images/faces/face5.jpg" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Suparman</p>
+                    <img class="img-xs rounded-circle" src="assets/images/faces/face15.jpg" alt="">
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Super Admin</p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
-                  <h6 class="p-3 mb-0">Menu</h6>
+                  <h6 class="p-3 mb-0">Profil</h6>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-book-open-variant text-primary"></i>
+                        <i class="mdi mdi-settings text-success"></i>
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Dashboard</p>
+                      <p class="preview-subject mb-1">Pengaturan</p>
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-login text-success"></i>
+                        <i class="mdi mdi-logout text-danger"></i>
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Log Out</p>
+                      <p class="preview-subject mb-1">Keluar</p>
                     </div>
                   </a>
-                  <div class="dropdown-divider"></div>
-                 
                 </div>
               </li>
             </ul>
@@ -116,91 +108,62 @@
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-            <div class="page-header">
+            <div class="row ">
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    
-                    <h4 class="card-title">Daftar Zakat</h4>
+                    <h4 class="card-title">List User</h4>
                     <p>
                     <button type="button" class="btn btn-primary btn-fw">Tambah Data</button>
                     </p>
+                    <!-- <p class="card-description"> Add class <code>.table-bordered</code>
+                    </p> -->
                     <div class="table-responsive">
                       <table class="table table-bordered">
                         <thead>
                           <tr>
                             <th> No </th>
-                            <th> Nama Muzakki </th>
-                            <th> Jumlah Orang </th>
-                            <th> Jumlah Zakat </th>
-                            <th> Tanggal Zakat </th>
-                            
-                           
+                            <th> Nama Pengguna </th>
+                            <th> Email </th>
+                            <th> Role </th>
+                            <th> Aksi </th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
                             <td> 1 </td>
                             <td> Herman Beck </td>
-                            <td>
-                              2
-                            </td>
-                            <td> $ 77.99 </td>
-                            <td> May 15, 2015 </td>
+                            <td> hermanbeck@gmail.com</td>
+                            <td> Admin Pengurus </td>
+                            <td>  </td>
                           </tr>
                           <tr>
                             <td> 2 </td>
                             <td> Messsy Adam </td>
-                            <td>
-                              4
-                            </td>
-                            <td> $245.30 </td>
-                            <td> July 1, 2015 </td>
+                            <td> messyadam@gmail.com</td>
+                            <td> Admin Pengurus </td>
+                            <td>  </td>
                           </tr>
                           <tr>
                             <td> 3 </td>
                             <td> John Richards </td>
-                            <td>
-                              5
-                            </td>
-                            <td> $138.00 </td>
-                            <td> Apr 12, 2015 </td>
+                            <td> johnrichards@gmail.com</td>
+                            <td> Admin Pengurus </td>
+                            <td>  </td>
                           </tr>
                           <tr>
                             <td> 4 </td>
                             <td> Peter Meggik </td>
-                            <td>
-                              8
-                            </td>
-                            <td> $ 77.99 </td>
-                            <td> May 15, 2015 </td>
+                            <td> petermeggik@gmail.com</td>
+                            <td> Admin Pengurus </td>
+                            <td>  </td>
                           </tr>
                           <tr>
                             <td> 5 </td>
                             <td> Edward </td>
-                            <td>
-                              1
-                            </td>
-                            <td> $ 160.25 </td>
-                            <td> May 03, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td> 6 </td>
-                            <td> John Doe </td>
-                            <td>
-                             2
-                            </td>
-                            <td> $ 123.21 </td>
-                            <td> April 05, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td> 7 </td>
-                            <td> Henry Tom </td>
-                            <td>
-                              1
-                            </td>
-                            <td> $ 150.00 </td>
-                            <td> June 16, 2015 </td>
+                            <td> edward@gmail.com</td>
+                            <td> Admin Pengurus </td>
+                            <td>  </td>
                           </tr>
                         </tbody>
                       </table>
@@ -209,13 +172,13 @@
                 </div>
               </div>
             </div>
-          </div>
+            
           <!-- content-wrapper ends -->
-          <!-- partial:../../partials/_footer.html -->
+          <!-- partial:partials/_footer.html -->
           <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2021</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin template</a> from Bootstrapdash.com</span>
             </div>
           </footer>
           <!-- partial -->
@@ -226,18 +189,25 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="<?= base_url(); ?>/../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
+    <script src="assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="<?= base_url(); ?>/../../assets/js/off-canvas.js"></script>
-    <script src="<?= base_url(); ?>/../../assets/js/hoverable-collapse.js"></script>
-    <script src="<?= base_url(); ?>/../../assets/js/misc.js"></script>
-    <script src="<?= base_url(); ?>/../../assets/js/settings.js"></script>
-    <script src="<?= base_url(); ?>/../../assets/js/todolist.js"></script>
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <script src="assets/js/settings.js"></script>
+    <script src="assets/js/todolist.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
+    <script src="assets/js/dashboard.js"></script>
     <!-- End custom js for this page -->
-  </body>
+  </body>
 </html>
