@@ -1,48 +1,75 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\ZakatModel;
 
-class Admin extends BaseController
+
+
+class AdminController extends BaseController
 {
+
     public function index(): string
     {
-        return view('auth/login', [
+
+        $data=[
+            
+            'zakat'=> $this->ZakatModel->getZakat(),
+        
+        ];
+
+        return view('admin-pengurus/index', $data,[
             'config' => config('Auth'),
         ]);
+        
+       
+        //
+
+    }
+    public $ZakatModel;
+
+    public function __construct() {
+        $this->ZakatModel = new ZakatModel();
     }
 
-    public function register()
+    public function create()
     {
-        return view('auth/register');
+        $ZakatModel = new ZakatModel();
+
+        $zakat =$this->ZakatModel->getZakat();
+
+        $data = [
+            'zakat'=>$zakat,
+
+        ];
+        return view('admin-pengurus/create_muzakki',$data);
+        
     }
 
-    public function user()
-    {
-        return view('user/index');
+    public function store(){
+        $ZakatModel = new ZakatModel();
+
+        $ZakatModel->saveZakat([
+            'nama'      => $this->request->getVar('nama'),
+            'noHP'  => $this->request->getVar('noHP'),
+            'selectBentukZakat'       => $this->request->getVar('selectBentukZakat'),
+            'jumlahOrang'  => $this->request->getVar('jumlahOrang'),
+            'jumlahZakat'  => $this->request->getVar('jumlahZakat'),
+            'amil'  => $this->request->getVar('amil'),
+           
+        ]);
+
+        $data = [
+            'nama'      => $this->request->getVar('nama'),
+            'noHP'  => $this->request->getVar('noHP'),
+            'selectBentukZakat'       => $this->request->getVar('selectBentukZakat'),
+            'jumlahOrang'  => $this->request->getVar('jumlahOrang'),
+            'jumlahZakat'  => $this->request->getVar('jumlahZakat'),
+            'amil'  => $this->request->getVar('amil'),
+        ];
+
+        return redirect()->to('admin-pengurus/index');
+
     }
 
-    public function tabel()
-    {
-        return view('user/tabel');
-    }
-
-    public function infaq()
-    {
-        return view('user/infaq');
-    }
-
-    public function adminp()
-    {
-        return view('admin-pengurus/index');
-    }
-
-    public function super()
-    {
-        return view('super-admin/index');
-    }
-
-    public function landing()
-    {
-        return view('landing-page/landing_page');
-    }
+  
 }
