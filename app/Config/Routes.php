@@ -2,6 +2,7 @@
 
 use App\Controllers\LandingController;
 use CodeIgniter\Router\RouteCollection;
+use App\Controllers\AdminController;
 
 /**
  * @var RouteCollection $routes
@@ -14,7 +15,10 @@ $routes->get('/tabel', 'Home::tabel');
 $routes->get('/infaq', 'Home::infaq');
 
 #admin-pengurus
-$routes->get('/admin-pengurus', 'Home::adminp');
+$routes->get('/admin-pengurus',[AdminController::class, 'index']);
+$routes->get('/admin-pengurus/create', [AdminController::class, 'create']);
+$routes->get('/admin-pengurus/index', [AdminController::class, 'index']);
+$routes->post('/admin-pengurus/store', [AdminController::class, 'store']);
 
 #super-admin
 $routes->get('/super-admin', 'Home::super');
@@ -22,3 +26,4 @@ $routes->get('/super-admin', 'Home::super');
 $routes->get('/landing-page', 'Home::landing');
 
 $routes->get('/', [LandingController::class, 'index']);
+

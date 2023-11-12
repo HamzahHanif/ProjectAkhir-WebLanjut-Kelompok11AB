@@ -32,7 +32,7 @@
             <span class="nav-link">Pengurus Masjid</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="<?= base_url('user'); ?>">
+            <a class="nav-link" href="<?= base_url('admin-pengurus'); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-airplay text-primary"></i>
               </span>
@@ -40,7 +40,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="<?= base_url('zakat'); ?>">
+            <a class="nav-link" href="<?= base_url('admin-pengurus'); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-coin text-primary"></i>
               </span>
