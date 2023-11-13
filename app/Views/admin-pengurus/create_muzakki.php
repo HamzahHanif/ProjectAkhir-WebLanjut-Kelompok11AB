@@ -7,7 +7,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Form Zakat</h4>
                     <p class="card-description"></p>
-                    <form class="forms-sample" action="<?= base_url('/admin-pengurus/store')?>" method="POST" enctype="multipart/form-data">">
+                    <form class="forms-sample" action="<?= base_url('/admin-pengurus/store')?>" method="POST" enctype="multipart/form-data">
                       <div class="form-group">
                         <label for="nama">Nama</label>
                         <input type="text" class="form-control" name="nama" placeholder="Nama">
