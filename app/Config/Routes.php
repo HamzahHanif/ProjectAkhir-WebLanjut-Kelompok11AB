@@ -13,6 +13,9 @@ $routes->get('/register', 'Home::register');
 $routes->get('/user', 'Home::user');
 $routes->get('/tabel', 'Home::tabel');
 $routes->get('/infaq', 'Home::infaq');
+$routes->get('/user/infaq',[UserController::class, 'infaq']);
+$routes->get('/user/create-infaq', [UserController::class, 'create']);
+$routes->post('/user/store', [UserController::class, 'store']);
 
 #admin-pengurus
 $routes->get('/admin-pengurus',[AdminController::class, 'index']);
