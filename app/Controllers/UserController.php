@@ -1,42 +1,60 @@
 <?php
 
 namespace App\Controllers;
-
 use App\Models\InfaqModel;
 
-class User extends BaseController
+class UserController extends BaseController
 {
-    public $InfaqModel;
+    public $infaqModel;
 
     public function __construct() {
-        $this->InfaqModel = new InfaqModel();
+        $this->infaqModel = new InfaqModel();
     }
 
     public function index(): string
     {
-        return view('auth/login', [
+        $data = [
+            'infaq' => $this->infaqModel->getInfaq(),
             'config' => config('Auth'),
-        ]);
+        ];
+        
+        return view('user/index', $data);
+        
+        // $data=[
+            
+        //     'infaq'=> $this->InfaqModel->getInfaq(),
+        
+        // ];
+
+        // return view('user/index', $data, [
+        //     'config' => config('Auth'),
+        // ]);
     }
 
-    public function infaq()
+    public function create()
     {
-        return view('user/index');
+    $infaq = $this->infaqModel->getInfaq();
+
+    $data = [
+        'infaq' => $infaq,
+    ];
+
+    return view('user/infaq', $data);
     }
 
     public function store(){
     
         
-        $path = 'assets/uploads/img/' ;
+        // $path = 'assets/uploads/img/' ;
 
-        $foto = $this->request->getFile('foto');
+        // $foto = $this->request->getFile('foto');
         
-        $name = $foto->getRandomName();
+        // $name = $foto->getRandomName();
         
 
-        if($foto->move($path, $name)){
-            $foto = base_url($path . $name);
-        }
+        // if($foto->move($path, $name)){
+        //     $foto = base_url($path . $name);
+        // }
 
         $InfaqModel = new InfaqModel();
         
@@ -55,12 +73,12 @@ class User extends BaseController
             'pesan' => $pesan,
         ];
 
-        $this->InfaqModel->saveInfaq([
+        $this->infaqModel->saveInfaq([
             'nama' => $this->request->getVar('nama'),
             'email' => $this->request->getVar('email'),
             'wa' =>$this->request->getVar('wa'),
             'norek' =>$this->request->getVar('norek'),
-            'foto'  => $foto,
+            //'foto'  => $foto,
             'pesan' =>$this->request->getVar('pesan'),
         ]);
 
@@ -68,17 +86,5 @@ class User extends BaseController
 
     }
 
-    public function create()
-    {
-        $InfaqModel = new InfaqModel();
-
-        $infaq =$this->InfaqModel->getInfaq();
-
-        $data = [
-            'infaq'=>$infaq,
-
-        ];
-        return view('user/infaq',$data);
-        
-    }
+    
 }
