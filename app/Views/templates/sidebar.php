@@ -10,7 +10,7 @@
             <span class="nav-link">User</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="<?= base_url('user'); ?>">
+            <a class="nav-link" href="<?= base_url('/'); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-airplay text-primary"></i>
               </span>
@@ -18,7 +18,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="<?= base_url('infaq'); ?>">
+            <a class="nav-link" href="<?= base_url('/user/infaq'); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-coin text-primary"></i>
               </span>
@@ -32,7 +32,7 @@
             <span class="nav-link">Pengurus Masjid</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="<?= base_url('admin-pengurus'); ?>">
+            <a class="nav-link" href="<?= base_url('/'); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-airplay text-primary"></i>
               </span>
@@ -48,7 +48,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="<?= base_url('infaq'); ?>">
+            <a class="nav-link" href="<?= base_url('/user/infaq'); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-coin text-primary"></i>
               </span>
@@ -62,7 +62,7 @@
             <span class="nav-link">Super Admin</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="<?= base_url('user'); ?>">
+            <a class="nav-link" href="<?= base_url('/'); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-airplay text-primary"></i>
               </span>
@@ -70,7 +70,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="<?= base_url('zakat'); ?>">
+            <a class="nav-link" href="<?= base_url('/admin-pengurus'); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-coin text-primary"></i>
               </span>
@@ -78,7 +78,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="<?= base_url('infaq'); ?>">
+            <a class="nav-link" href="<?= base_url('/user/infaq'); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-coin text-primary"></i>
               </span>
@@ -86,11 +86,11 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="<?= base_url('infaq'); ?>">
+            <a class="nav-link" href="<?= base_url('/super'); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-coin text-primary"></i>
               </span>
-              <span class="menu-title">Data Admin</span>
+              <span class="menu-title">Data User</span>
             </a>
           </li>
           <?php endif; ?>
