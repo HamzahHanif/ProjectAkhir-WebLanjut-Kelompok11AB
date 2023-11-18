@@ -3,17 +3,19 @@
 use App\Controllers\LandingController;
 use CodeIgniter\Router\RouteCollection;
 use App\Controllers\AdminController;
+use App\Controllers\UserController;
 
 /**
  * @var RouteCollection $routes
  */
 #user
-$routes->get('/welcome', 'Home::index');
-$routes->get('/register', 'Home::register');
-$routes->get('/user', 'Home::user');
-$routes->get('/tabel', 'Home::tabel');
-$routes->get('/infaq', 'Home::infaq');
-$routes->get('/user/infaq',[UserController::class, 'infaq']);
+// $routes->get('/welcome', 'Home::index');
+// $routes->get('/register', 'Home::register');
+// $routes->get('/user', 'Home::user');
+// $routes->get('/tabel', 'Home::tabel');
+$routes->get('/super', 'Home::super');
+
+$routes->get('/user/infaq',[UserController::class, 'index']);
 $routes->get('/user/create-infaq', [UserController::class, 'create']);
 $routes->post('/user/store', [UserController::class, 'store']);
 

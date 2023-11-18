@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/../../assets/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
     <!-- End Plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
@@ -67,6 +71,11 @@
     <script src="<?= base_url(); ?>/../../assets/js/misc.js"></script>
     <script src="<?= base_url(); ?>/../../assets/js/settings.js"></script>
     <script src="<?= base_url(); ?>/../../assets/js/todolist.js"></script>
+    <script src="<?= base_url(); ?>/assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="<?= base_url(); ?>/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="<?= base_url(); ?>/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->

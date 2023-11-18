@@ -5,10 +5,6 @@ namespace App\Controllers;
 use App\Models\ZakatModel;
 
 
-
-
-
-
 class AdminController extends BaseController
 {
 

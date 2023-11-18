@@ -45,12 +45,38 @@ class AuthController extends Controller
     {
         // No need to show a login form if the user
         // is already logged in.
-        if ($this->auth->check()) {
+        if ($this->auth->check(in_groups('user'))) {
             $redirectURL = session('redirect_url') ?? site_url('/');
             unset($_SESSION['redirect_url']);
 
             return redirect()->to($redirectURL);
         }
+
+        // if ($this->auth->check()) {
+        //     $currentRole = $this->auth->user()->getRoles()[0] ?? ''; // Ambil peran (role) dari user yang login
+    
+        //     switch ($currentRole) {
+        //         case 'admin':
+        //             $redirectURL = site_url('/halaman-admin');
+        //             break;
+    
+        //         case 'pegawai':
+        //             $redirectURL = site_url('/halaman-pegawai');
+        //             break;
+    
+        //         case 'superadmin':
+        //             $redirectURL = site_url('/halaman-superadmin');
+        //             break;
+    
+        //         default:
+        //             $redirectURL = site_url('/halaman-default');
+        //             break;
+        //     }
+    
+        //     unset($_SESSION['redirect_url']);
+            
+        //     return redirect()->to($redirectURL);
+        // }
 
         // Set a return URL if none is specified
         $_SESSION['redirect_url'] = session('redirect_url') ?? previous_url() ?? site_url('/');
