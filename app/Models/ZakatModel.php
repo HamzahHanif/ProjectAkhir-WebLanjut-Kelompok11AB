@@ -1,8 +1,11 @@
 <?php
 
+
 namespace App\Models;
 
+
 use CodeIgniter\Model;
+
 
 class ZakatModel extends Model
 {
@@ -12,7 +15,8 @@ class ZakatModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama','noHP','selectBentukZakat','jumlahOrang','jumlahZakat','amil'];
+    protected $allowedFields    = ['id','nama','noHP','selectBentukZakat','jumlahOrang','jumlahZakat','amil'];
+
 
     // Dates
     protected $useTimestamps = true;
@@ -21,11 +25,13 @@ class ZakatModel extends Model
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
+
     // Validation
     protected $validationRules      = [];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
+
 
     // Callbacks
     protected $allowCallbacks = true;
@@ -38,13 +44,32 @@ class ZakatModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+
     public function saveZakat($data){
         $this->insert($data);
     }
 
-    public function getZakat()
+
+
+
+    //update delete
+    public function getZakat($id = null)
     {
-        return $this->findAll();
+        if ($id != null) {
+            return $this->select(
+                ['id','nama','noHP','selectBentukZakat','jumlahOrang','jumlahZakat','amil'])->find($id);
+        }
+        return $this->select(
+            ['id','nama','noHP','selectBentukZakat','jumlahOrang','jumlahZakat','amil'])->findAll();
     }
 
+
+    public function updateZakat($data, $id){
+        return $this->update($id, $data);
+    }
+
+
+    public function deleteZakat($id){
+        return $this->delete($id);
+    }
 }

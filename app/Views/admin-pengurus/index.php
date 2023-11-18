@@ -1,16 +1,18 @@
 <?= $this->extend('templates/index'); ?>
 
+
 <?= $this->section('page-content'); ?>
 <?php $id = 1; ?>
+
 
             <div class="page-header">
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    
+                   
                   <h4 class="card-title">Daftar Zakat</h4>
                     <p>
-                    
+                   
                     <a href="<?= base_url('admin-pengurus/create')?>" class="btn btn-primary btn-fw">Tambah Data</a>
                     </p>
                     <div class="table-responsive">
@@ -41,10 +43,16 @@
                             <td><?= $zakat['jumlahZakat']?></td>
                             <td><?= $zakat['amil']?></td>
                             <td>
-                            <a href="#" class="btn btn-warning">Edit</a>
-                            <button type="submit" class="btn btn-danger">Hapus</button>
-                          </td>
-                        </tr>
+                            <a href="<?= base_url('/admin-pengurus/' . $zakat['id'] . '/edit_data_muzakki') ?>" class="btn btn-warning">Edit</a>
+
+
+                            <form action="<?= base_url('admin-pengurus/' . $zakat['id']) ?>" method="post" style="display:inline-block">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <?= csrf_field() ?>
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                              </form>
+                            </td>
+                          </tr>
                           <?php
                         }
                         ?>
@@ -55,5 +63,6 @@
                 </div>
               </div>
             </div>
+
 
 <?= $this->endSection(); ?>
