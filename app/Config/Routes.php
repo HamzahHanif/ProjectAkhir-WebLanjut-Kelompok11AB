@@ -4,6 +4,7 @@ use App\Controllers\LandingController;
 use CodeIgniter\Router\RouteCollection;
 use App\Controllers\AdminController;
 use App\Controllers\UserController;
+use App\Controllers\SuperController;
 
 /**
  * @var RouteCollection $routes
@@ -31,7 +32,11 @@ $routes -> delete('/admin-pengurus/(:any)', [AdminController::class, 'destroyZak
 
 
 #super-admin
-$routes->get('/super-admin', 'Home::super');
+$routes->get('/super-admin/index',[SuperController::class, 'index']);
+$routes->get('/super-admin/index', 'SuperController::index');
+
+
+
 #commonly
 $routes->get('/landing-page', 'Home::landing');
 

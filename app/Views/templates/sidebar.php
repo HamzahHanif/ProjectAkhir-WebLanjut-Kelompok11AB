@@ -86,7 +86,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="<?= base_url('/super'); ?>">
+            <a class="nav-link" href="<?= base_url('/super-admin/index'); ?>">
               <span class="menu-icon">
                 <i class="mdi mdi-coin text-primary"></i>
               </span>

@@ -12,7 +12,6 @@
                    
                   <h4 class="card-title">Daftar Zakat</h4>
                     <p>
-                   
                     <a href="<?= base_url('admin-pengurus/create')?>" class="btn btn-primary btn-fw">Tambah Data</a>
                     </p>
                     <div class="table-responsive">

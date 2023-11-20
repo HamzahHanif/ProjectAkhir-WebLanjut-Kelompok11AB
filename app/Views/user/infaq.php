@@ -34,7 +34,7 @@
 
                       <div class="form-group">
                         <label>Bukti Pembayaran</label>
-                        <input type="file" name="img[]" class="file-upload-default">
+                        <input type="file" name="foto" class="file-upload-default">
                         <div class="input-group col-xs-12">
                           <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                           <span class="input-group-append">
