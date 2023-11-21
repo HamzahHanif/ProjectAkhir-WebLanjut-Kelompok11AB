@@ -42,8 +42,25 @@ class InfaqModel extends Model
         $this->insert($data);
     }
 
-    public function getInfaq()
-    {
-        return $this->findAll();
-    }
+    // public function getInfaq()
+    // {
+    //     return $this->findAll();
+    // }
+
+     //update delete
+     public function getInfaq($id = null)
+     {
+         if ($id != null) {
+             return $this->select(
+                 ['id','nama','email','wa','norek','pesan'])->find($id);
+         }
+         return $this->select(
+             ['id','nama','email','wa','norek','pesan'])->findAll();
+     }
+     public function updateInfaq($data, $id){
+         return $this->update($id, $data);
+     }
+     public function deleteInfaq($id){
+         return $this->delete($id);
+     }
 }
