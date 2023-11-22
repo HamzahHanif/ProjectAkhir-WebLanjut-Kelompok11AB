@@ -12,7 +12,7 @@ class InfaqModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama','email','wa','norek','foto','pesan'];
+    protected $allowedFields    = ['nama','email','wa','norek','foto','pesan','jumlah'];
 
     // Dates
     protected $useTimestamps = true;
@@ -42,8 +42,25 @@ class InfaqModel extends Model
         $this->insert($data);
     }
 
-    public function getInfaq()
-    {
-        return $this->findAll();
-    }
+    // public function getInfaq()
+    // {
+    //     return $this->findAll();
+    // }
+
+     //update delete
+     public function getInfaq($id = null)
+     {
+         if ($id != null) {
+             return $this->select(
+                 ['id','nama','email','wa','norek','pesan','jumlah'])->find($id);
+         }
+         return $this->select(
+             ['id','nama','email','wa','norek','pesan','jumlah'])->findAll();
+     }
+     public function updateInfaq($data, $id){
+         return $this->update($id, $data);
+     }
+     public function deleteInfaq($id){
+         return $this->delete($id);
+     }
 }

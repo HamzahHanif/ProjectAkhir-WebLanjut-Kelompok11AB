@@ -45,16 +45,16 @@ class UserController extends BaseController
     public function store(){
     
         
-        // $path = 'assets/uploads/img/' ;
+        $path = 'assets/uploads/img/' ;
 
-        // $foto = $this->request->getFile('foto');
+        $foto = $this->request->getFile('foto');
         
-        // $name = $foto->getRandomName();
+        $name = $foto->getRandomName();
         
 
-        // if($foto->move($path, $name)){
-        //     $foto = base_url($path . $name);
-        // }
+        if($foto->move($path, $name)){
+            $foto = base_url($path . $name);
+        }
 
         $InfaqModel = new InfaqModel();
         
@@ -62,14 +62,18 @@ class UserController extends BaseController
         $nama = $this->request->getPost('nama');
         $email = $this->request->getPost('email');
         $wa = $this->request->getPost('wa');
+        $jumlah = $this->request->getPost('jumlah');
         $norek = $this->request->getPost('norek');
+        $foto = $this->request->getPost('foto');
         $pesan = $this->request->getPost('pesan');
 
         $data=[
             'nama' => $nama,
             'email' => $email,
             'wa' => $wa,
+            'jumlah' => $jumlah,
             'norek' => $norek,
+            'foto'  => $foto,
             'pesan' => $pesan,
         ];
 
@@ -77,13 +81,57 @@ class UserController extends BaseController
             'nama' => $this->request->getVar('nama'),
             'email' => $this->request->getVar('email'),
             'wa' =>$this->request->getVar('wa'),
+            'jumlah' => $this->request->getVar('jumlah'),
             'norek' =>$this->request->getVar('norek'),
-            //'foto'  => $foto,
+            'foto'  => $foto,
             'pesan' =>$this->request->getVar('pesan'),
         ]);
 
         return redirect()->to('/user/infaq');
 
+    }
+
+    // edit delete infaq
+    public function edit($id){
+        $infaq =$this->infaqModel->getInfaq($id);
+        $data = [
+            'infaq'=>$infaq,
+        ];
+
+
+        return view('user/edit_infaq',$data);
+    }
+
+    public function update($id){
+        $data = [
+            'nama' => $this->request->getVar('nama'),
+            'email' => $this->request->getVar('email'),
+            'wa' =>$this->request->getVar('wa'),
+            'jumlah' => $this->request->getVar('jumlah'),
+            'norek' =>$this->request->getVar('norek'),
+            'pesan' =>$this->request->getVar('pesan'),
+        ];
+
+        $result = $this->infaqModel->update($id,$data);
+
+
+        if(!$result){
+            return redirect()->back()->withInput()
+            ->with('error','Gagal Menyimpan Data');
+        }
+
+
+        return redirect()->to(base_url('/user/index'));
+    }
+
+    public function destroyInfaq($id)
+    {
+        $result = $this->infaqModel->deleteInfaq($id);
+        if(!$result){
+            return redirect()->back()->with('error', 'Gagal Menghapus Data');
+        }
+        return redirect()->to(base_url('/user/index'))
+            ->with('success', 'Berhasil Menghapus Data');
     }
 
     

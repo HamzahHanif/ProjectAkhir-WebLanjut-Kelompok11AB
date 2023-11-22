@@ -29,7 +29,7 @@
                           <tr>
                             <td><?php echo $id++ ?></td>
                             <td><?= $item['nama']?></td>
-                            <td></td>
+                            <td>Rp <?= $item['jumlah']?></td>
                             <td><?= $item['pesan']?></td>
                             
                         </tr>
@@ -68,9 +68,9 @@
                             <td><?= $item['nama']?></td>
                             <td><?= $item['email']?></td>
                             <td><?= $item['wa']?></td>
-                            <td></td>
+                            <td>Rp <?= $item['jumlah']?></td>
                             <td><?= $item['norek']?></td>
-                            <td><?= $item['foto']?></td>
+                            <td>Foto</td>
                             <td><?= $item['pesan']?></td>
                             <td>
                             <a href="#" class="btn btn-warning">Edit</a>
@@ -105,19 +105,23 @@
                         </thead>
                         <tbody>
                         <?php
-                          foreach ($infaq as $item){
+                          foreach ($infaq as $infaq){
                           ?>
                           <tr>
                             <td><?php echo $id++ ?></td>
-                            <td><?= $item['nama']?></td>
-                            <td><?= $item['email']?></td>
-                            <td><?= $item['wa']?></td>
-                            <td></td>
-                            <td><?= $item['norek']?></td>
-                            <td><?= $item['foto']?></td>
-                            <td><?= $item['pesan']?></td>
+                            <td><?= $infaq['nama']?></td>
+                            <td><?= $infaq['email']?></td>
+                            <td><?= $infaq['wa']?></td>
+                            <td>Rp <?=$infaq['jumlah']?></td>
+                            <td><?= $infaq['norek']?></td>
+                            
+                            <td>Foto</td>
+                            <td><?= $infaq['pesan']?></td>
                             <td>
-                            <a href="#" class="btn btn-warning">Edit</a>
+                            <a href="<?= base_url('/user/' . $infaq['id'] . '/edit_infaq') ?>" class="btn btn-warning">Edit</a>
+                            <form action="<?= base_url('user/' . $infaq['id']) ?>" method="post" style="display:inline-block">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <?= csrf_field() ?>
                             <button type="submit" class="btn btn-danger">Hapus</button>
                           </td>
                         </tr>

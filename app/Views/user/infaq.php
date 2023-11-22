@@ -33,13 +33,15 @@
                       </div>
 
                       <div class="form-group">
+                        <label for="exampleInputPassword4">Jumlah Infaq</label>
+                        <input type="text" class="form-control" name="jumlah" placeholder="Jumlah Infaq">
+                      </div>
+
+                      <div class="form-group">
                         <label>Bukti Pembayaran</label>
                         <input type="file" name="foto" class="file-upload-default">
                         <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-primary" type="button">Unggah</button>
-                          </span>
+                          <input type="file" name="foto" class="form-control file-upload-info" placeholder="Upload Image">
                         </div>
                       </div>
 

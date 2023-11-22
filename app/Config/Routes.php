@@ -18,7 +18,12 @@ $routes->get('/super', 'Home::super');
 
 $routes->get('/user/infaq',[UserController::class, 'index']);
 $routes->get('/user/create-infaq', [UserController::class, 'create']);
+$routes->get('/user/index', [UserController::class, 'index']);
 $routes->post('/user/store', [UserController::class, 'store']);
+//edit delete 
+$routes->get('/user/(:any)/edit_infaq',[UserController::class, 'edit']);
+$routes->put('/user/(:any)',[UserController::class, 'update']);
+$routes -> delete('/user/(:any)', [UserController::class, 'destroyInfaq']);
 
 #admin-pengurus
 $routes->get('/admin-pengurus',[AdminController::class, 'index']);
