@@ -45,16 +45,16 @@ class UserController extends BaseController
     public function store(){
     
         
-        // $path = 'assets/uploads/img/' ;
+        $path = 'assets/uploads/img/' ;
 
-        // $foto = $this->request->getFile('foto');
+        $foto = $this->request->getFile('foto');
         
-        // $name = $foto->getRandomName();
+        $name = $foto->getRandomName();
         
 
-        // if($foto->move($path, $name)){
-        //     $foto = base_url($path . $name);
-        // }
+        if($foto->move($path, $name)){
+            $foto = base_url($path . $name);
+        }
 
         $InfaqModel = new InfaqModel();
         
@@ -62,14 +62,18 @@ class UserController extends BaseController
         $nama = $this->request->getPost('nama');
         $email = $this->request->getPost('email');
         $wa = $this->request->getPost('wa');
+        $jumlah = $this->request->getPost('jumlah');
         $norek = $this->request->getPost('norek');
+        $foto = $this->request->getPost('foto');
         $pesan = $this->request->getPost('pesan');
 
         $data=[
             'nama' => $nama,
             'email' => $email,
             'wa' => $wa,
+            'jumlah' => $jumlah,
             'norek' => $norek,
+            'foto'  => $foto,
             'pesan' => $pesan,
         ];
 
@@ -77,8 +81,9 @@ class UserController extends BaseController
             'nama' => $this->request->getVar('nama'),
             'email' => $this->request->getVar('email'),
             'wa' =>$this->request->getVar('wa'),
+            'jumlah' => $this->request->getVar('jumlah'),
             'norek' =>$this->request->getVar('norek'),
-            //'foto'  => $foto,
+            'foto'  => $foto,
             'pesan' =>$this->request->getVar('pesan'),
         ]);
 
@@ -102,6 +107,7 @@ class UserController extends BaseController
             'nama' => $this->request->getVar('nama'),
             'email' => $this->request->getVar('email'),
             'wa' =>$this->request->getVar('wa'),
+            'jumlah' => $this->request->getVar('jumlah'),
             'norek' =>$this->request->getVar('norek'),
             'pesan' =>$this->request->getVar('pesan'),
         ];

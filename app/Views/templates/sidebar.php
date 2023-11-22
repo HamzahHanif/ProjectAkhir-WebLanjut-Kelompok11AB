@@ -22,7 +22,7 @@
               <span class="menu-icon">
                 <i class="mdi mdi-coin text-primary"></i>
               </span>
-              <span class="menu-title">Berinfaq</span>
+              <span class="menu-title">Infaq Masjid</span>
             </a>
           </li>
           <?php endif; ?>

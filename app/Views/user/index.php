@@ -29,7 +29,7 @@
                           <tr>
                             <td><?php echo $id++ ?></td>
                             <td><?= $item['nama']?></td>
-                            <td></td>
+                            <td>Rp <?= $item['jumlah']?></td>
                             <td><?= $item['pesan']?></td>
                             
                         </tr>
@@ -68,9 +68,9 @@
                             <td><?= $item['nama']?></td>
                             <td><?= $item['email']?></td>
                             <td><?= $item['wa']?></td>
-                            <td></td>
+                            <td>Rp <?= $item['jumlah']?></td>
                             <td><?= $item['norek']?></td>
-                            <td><?= $item['foto']?></td>
+                            <td>Foto</td>
                             <td><?= $item['pesan']?></td>
                             <td>
                             <a href="#" class="btn btn-warning">Edit</a>
@@ -112,8 +112,9 @@
                             <td><?= $infaq['nama']?></td>
                             <td><?= $infaq['email']?></td>
                             <td><?= $infaq['wa']?></td>
-                            <td>Jumlah</td>
+                            <td>Rp <?=$infaq['jumlah']?></td>
                             <td><?= $infaq['norek']?></td>
+                            
                             <td>Foto</td>
                             <td><?= $infaq['pesan']?></td>
                             <td>

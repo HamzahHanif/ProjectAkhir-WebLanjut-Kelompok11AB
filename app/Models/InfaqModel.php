@@ -12,7 +12,7 @@ class InfaqModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama','email','wa','norek','foto','pesan'];
+    protected $allowedFields    = ['nama','email','wa','norek','foto','pesan','jumlah'];
 
     // Dates
     protected $useTimestamps = true;
@@ -52,10 +52,10 @@ class InfaqModel extends Model
      {
          if ($id != null) {
              return $this->select(
-                 ['id','nama','email','wa','norek','pesan'])->find($id);
+                 ['id','nama','email','wa','norek','pesan','jumlah'])->find($id);
          }
          return $this->select(
-             ['id','nama','email','wa','norek','pesan'])->findAll();
+             ['id','nama','email','wa','norek','pesan','jumlah'])->findAll();
      }
      public function updateInfaq($data, $id){
          return $this->update($id, $data);

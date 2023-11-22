@@ -30,6 +30,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="jumlah">Jumlah infaq</label>
+                        <input type="text" class="form-control" name="jumlah" placeholder="Jumlah Infaq" value="<?= $infaq['jumlah'] ?>">
+                    </div>
+
+                    <div class="form-group">
                         <label for="norek">No Rekening</label>
                         <select class="form-control" name="norek">
                             <option <?= ($infaq['norek'] == 'BCA') ? 'selected' : '' ?>>[BCA] 12345678 A.n Masjid Al-Ikhlas</option>
