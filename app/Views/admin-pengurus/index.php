@@ -10,6 +10,7 @@
                 <h4 class="card-title">Daftar Zakat</h4>
                 <p>
                     <a href="<?= base_url('admin-pengurus/create')?>" class="btn btn-primary btn-fw">Tambah Data</a>
+                    <a href="<?= base_url('admin-pengurus/cetak-laporan')?>" class="btn btn-success btn-fw">Cetak Laporan</a>
                 </p>
                 <?php if (empty($zakat)) : ?>
                     <p class="text-danger">Data zakat Kosong</p>
