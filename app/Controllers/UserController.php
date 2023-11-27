@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\InfaqModel;
+use TCPDF;
 
 class UserController extends BaseController
 {
@@ -133,6 +134,59 @@ class UserController extends BaseController
         return redirect()->to(base_url('/user/index'))
             ->with('success', 'Berhasil Menghapus Data');
     }
+
+    //cetak laporan infaq
+    public function cetakLaporanInfaq()
+    {
+        // Ambil data infaq dari model
+        $infaqData = $this->infaqModel->getInfaq();
+    
+        // Inisialisasi objek TCPDF
+        $pdf = new TCPDF();
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+        $pdf->SetMargins(10, 10, 10); // Set overall page margins (left, top, right)
+        $pdf->SetFont('helvetica', '', 8); // Use Helvetica font, change font size to 8
+    
+        // Tambahkan halaman pertama
+        $pdf->AddPage();
+    
+        // Tambahkan judul laporan
+        $pdf->SetFont('helvetica', 'B', 14); // Use Helvetica font, change title font size to 14
+        $pdf->Cell(0, 10, 'Laporan Infaq', 0, 1, 'C');
+    
+        // Tambahkan tanggal pencetakan
+        $pdf->SetFont('helvetica', 'I', 10); // Use Helvetica font, change font size to 10
+        $pdf->Cell(0, 10, 'Tanggal Cetakan: ' . date('d F Y'), 0, 1, 'C');
+        $pdf->Ln(); // Pindah ke baris berikutnya
+    
+        // Tambahkan header tabel
+        $pdf->SetFont('helvetica', 'B', 10); // Use Helvetica font, change font size to 10
+        $pdf->Cell(10, 8, 'No', 1); // Adjust width for 'No'
+        $pdf->Cell(40, 8, 'Nama', 1);
+        $pdf->Cell(40, 8, 'Email', 1); // Adjusted width for 'Email'
+        $pdf->Cell(25, 8, 'WA', 1); // Adjusted width for 'WA'
+        $pdf->Cell(35, 8, 'No Rek', 1); // Adjusted width for 'No Rek'
+        $pdf->Cell(50, 8, 'Pesan', 1); // Adjusted width for 'Pesan'
+        $pdf->Cell(10, 8, '', 1); // Empty cell to add right margin
+        $pdf->Ln(); // Pindah ke baris berikutnya
+    
+        // Tambahkan data infaq ke dalam tabel
+        $id = 1;
+        foreach ($infaqData as $infaq) {
+            $pdf->Cell(10, 8, $id++, 1); // Adjust width for 'No'
+            $pdf->Cell(40, 8, $infaq['nama'], 1);
+            $pdf->Cell(40, 8, $infaq['email'], 1, 0, 'L', false, '', true); // Wrap content for 'Email'
+            $pdf->Cell(25, 8, $infaq['wa'], 1); // Adjusted width for 'WA'
+            $pdf->Cell(35, 8, $infaq['norek'], 1, 0, 'L', false, '', true); // Wrap content for 'No Rek'
+            $pdf->Cell(50, 8, $infaq['pesan'], 1); // Adjusted width for 'Pesan'
+            $pdf->Cell(10, 8, '', 1); // Empty cell to add right margin
+            $pdf->Ln(); // Pindah ke baris berikutnya
+        }
+    
+        // Output PDF ke browser atau simpan ke file
+        $pdf->Output('Laporan_Infaq.pdf', 'I');
+    }
+
 
     
 }

@@ -3,9 +3,11 @@
 
 namespace App\Controllers;
 use App\Models\ZakatModel;
+use TCPDF;
 
 
-class AdminController extends BaseController
+
+class AdminController extends BaseController 
 {
 
   
@@ -134,6 +136,115 @@ class AdminController extends BaseController
         return redirect()->to(base_url('/admin-pengurus/index'))
             ->with('success', 'Berhasil Menghapus Data');
     }
+
+//cetak laporan
+    public function cetakLaporan()
+    {
+        // Ambil data zakat dari model
+        $zakatData = $this->ZakatModel->getZakat();
+
+        // Inisialisasi objek TCPDF
+        $pdf = new TCPDF();
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+        $pdf->SetMargins(10, 10, 10); // Set overall page margins (left, top, right)
+        $pdf->SetFont('helvetica', '', 8); // Use Helvetica font, change font size to 8
+
+        // Tambahkan halaman pertama
+        $pdf->AddPage();
+
+        // Tambahkan judul laporan
+        $pdf->SetFont('helvetica', 'B', 14); // Use Helvetica font, change title font size to 14
+        $pdf->Cell(0, 10, 'Laporan Zakat', 0, 1, 'C');
+
+        // Tambahkan tanggal pencetakan
+        $pdf->SetFont('helvetica', 'I', 10); // Use Helvetica font, change font size to 10
+        $pdf->Cell(0, 10, 'Tanggal Cetakan: ' . date('d F Y'), 0, 1, 'C');
+        $pdf->Ln(); // Pindah ke baris berikutnya
+
+        // Tambahkan header tabel
+        $pdf->SetFont('helvetica', 'B', 10); // Use Helvetica font, change font size to 10
+        $pdf->Cell(10, 8, 'No', 1); // Adjust width for 'No'
+        $pdf->Cell(40, 8, 'Nama Muzakki', 1);
+        $pdf->Cell(30, 8, 'No HP', 1);
+        $pdf->Cell(40, 8, 'Bentuk Zakat', 1);
+        $pdf->Cell(30, 8, 'Jumlah Orang', 1);
+        $pdf->Cell(30, 8, 'Jumlah Zakat', 1);
+        $pdf->Cell(30, 8, 'Amil', 1);
+        $pdf->Cell(10, 8, '', 1); // Empty cell to add right margin
+        $pdf->Ln(); // Pindah ke baris berikutnya
+
+        // Tambahkan data zakat ke dalam tabel
+        $id = 1;
+        foreach ($zakatData as $zakat) {
+            $pdf->Cell(10, 8, $id++, 1); // Adjust width for 'No'
+            $pdf->Cell(40, 8, $zakat['nama'], 1);
+            $pdf->Cell(30, 8, $zakat['noHP'], 1);
+            $pdf->Cell(40, 8, $zakat['selectBentukZakat'], 1);
+            $pdf->Cell(30, 8, $zakat['jumlahOrang'], 1);
+            $pdf->Cell(30, 8, $zakat['jumlahZakat'], 1);
+            $pdf->Cell(30, 8, $zakat['amil'], 1);
+            $pdf->Cell(10, 8, '', 1); // Empty cell to add right margin
+            $pdf->Ln(); // Pindah ke baris berikutnya
+        }
+
+        // Output PDF ke browser atau simpan ke file
+        $pdf->Output('Laporan_Zakat.pdf', 'I');
+    }
+
+    //cetak laporan infaq
+    public function cetakLaporanInfaq()
+    {
+        // Ambil data zakat dari model
+        $zakatData = $this->ZakatModel->getZakat();
+
+        // Inisialisasi objek TCPDF
+        $pdf = new TCPDF();
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+        $pdf->SetMargins(10, 10, 10); // Set overall page margins (left, top, right)
+        $pdf->SetFont('helvetica', '', 8); // Use Helvetica font, change font size to 8
+
+        // Tambahkan halaman pertama
+        $pdf->AddPage();
+
+        // Tambahkan judul laporan
+        $pdf->SetFont('helvetica', 'B', 14); // Use Helvetica font, change title font size to 14
+        $pdf->Cell(0, 10, 'Laporan Zakat', 0, 1, 'C');
+
+        // Tambahkan tanggal pencetakan
+        $pdf->SetFont('helvetica', 'I', 10); // Use Helvetica font, change font size to 10
+        $pdf->Cell(0, 10, 'Tanggal Cetakan: ' . date('d F Y'), 0, 1, 'C');
+        $pdf->Ln(); // Pindah ke baris berikutnya
+
+        // Tambahkan header tabel
+        $pdf->SetFont('helvetica', 'B', 10); // Use Helvetica font, change font size to 10
+        $pdf->Cell(10, 8, 'No', 1); // Adjust width for 'No'
+        $pdf->Cell(40, 8, 'Nama Muzakki', 1);
+        $pdf->Cell(30, 8, 'No HP', 1);
+        $pdf->Cell(40, 8, 'Bentuk Zakat', 1);
+        $pdf->Cell(30, 8, 'Jumlah Orang', 1);
+        $pdf->Cell(30, 8, 'Jumlah Zakat', 1);
+        $pdf->Cell(30, 8, 'Amil', 1);
+        $pdf->Cell(10, 8, '', 1); // Empty cell to add right margin
+        $pdf->Ln(); // Pindah ke baris berikutnya
+
+        // Tambahkan data zakat ke dalam tabel
+        $id = 1;
+        foreach ($zakatData as $zakat) {
+            $pdf->Cell(10, 8, $id++, 1); // Adjust width for 'No'
+            $pdf->Cell(40, 8, $zakat['nama'], 1);
+            $pdf->Cell(30, 8, $zakat['noHP'], 1);
+            $pdf->Cell(40, 8, $zakat['selectBentukZakat'], 1);
+            $pdf->Cell(30, 8, $zakat['jumlahOrang'], 1);
+            $pdf->Cell(30, 8, $zakat['jumlahZakat'], 1);
+            $pdf->Cell(30, 8, $zakat['amil'], 1);
+            $pdf->Cell(10, 8, '', 1); // Empty cell to add right margin
+            $pdf->Ln(); // Pindah ke baris berikutnya
+        }
+
+        // Output PDF ke browser atau simpan ke file
+        $pdf->Output('Laporan_Zakat.pdf', 'I');
+    }
+
 
 
  
