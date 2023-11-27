@@ -38,6 +38,10 @@ class UserModel extends Model
      */
     protected $assignGroup;
 
+    public function getTotalUsers()
+    {
+        return $this->countAll();
+    }
     /**
      * Logs a password reset attempt for posterity sake.
      */

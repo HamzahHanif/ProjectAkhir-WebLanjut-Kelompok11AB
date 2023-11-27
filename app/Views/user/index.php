@@ -73,7 +73,10 @@
                             <td>Foto</td>
                             <td><?= $item['pesan']?></td>
                             <td>
-                            <a href="#" class="btn btn-warning">Edit</a>
+                            <a href="<?= base_url('/user/' . $item['id'] . '/edit_infaq') ?>" class="btn btn-warning">Edit</a>
+                            <form action="<?= base_url('user/' . $item['id']) ?>" method="post" style="display:inline-block">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <?= csrf_field() ?>
                             <button type="submit" class="btn btn-danger">Hapus</button>
                           </td>
                         </tr>

@@ -48,14 +48,20 @@ class InfaqModel extends Model
     // }
 
      //update delete
+
+     public function getTotalInfaq()
+    {
+        return $this->selectSum('jumlah')->get()->getRow()->jumlah;
+    }
+
      public function getInfaq($id = null)
      {
          if ($id != null) {
              return $this->select(
-                 ['id','nama','email','wa','norek','pesan','jumlah'])->find($id);
+                 ['id','nama','email','wa','norek','pesan','jumlah','foto'])->find($id);
          }
          return $this->select(
-             ['id','nama','email','wa','norek','pesan','jumlah'])->findAll();
+             ['id','nama','email','wa','norek','pesan','jumlah','foto'])->findAll();
      }
      public function updateInfaq($data, $id){
          return $this->update($id, $data);

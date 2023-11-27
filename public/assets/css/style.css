@@ -9010,7 +9010,7 @@ progress {
   .tt-query:focus,
   .tt-hint:focus {
     color: #212529;
-    background-color: #fff;
+    background-color: #212529;
     border-color: #86b7fe;
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); }

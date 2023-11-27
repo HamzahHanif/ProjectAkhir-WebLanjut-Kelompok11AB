@@ -49,7 +49,22 @@ class ZakatModel extends Model
         $this->insert($data);
     }
 
+    public function getTotalZakatByBentuk()
+    {
+        $result = $this->select('selectBentukZakat, SUM(jumlahZakat) as total')
+                       ->groupBy('selectBentukZakat')
+                       ->get()
+                       ->getResult();
 
+        $totalZakat = ['Uang Tunai' => 0, 'Beras' => 0];
+
+        foreach ($result as $row) {
+            $bentukZakat = $row->selectBentukZakat;
+            $totalZakat[$bentukZakat] = $row->total;
+        }
+
+        return $totalZakat;
+    }
 
 
     //update delete
