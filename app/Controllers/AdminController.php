@@ -46,12 +46,18 @@ class AdminController extends BaseController
 
         $zakat =$this->ZakatModel->getZakat();
 
+        if (session('validation') != null){
+            $validation = session('validation');
+        }else{
+            $validation = \Config\Services::validation();
+        }
 
         $data = [
+            'title'=> 'User Zakat',
             'zakat'=>$zakat,
-
-
+            'validation'=> $validation,
         ];
+
         return view('admin-pengurus/create_muzakki',$data);
        
     }
@@ -96,8 +102,17 @@ class AdminController extends BaseController
     //EDIT DELETE
     public function edit($id){
         $zakat =$this->ZakatModel->getZakat($id);
+
+        if (session('validation') != null){
+            $validation = session('validation');
+        }else{
+            $validation = \config\Services::validation();
+        }
+
         $data = [
+            'title'=> 'Edit Zakat',
             'zakat'=>$zakat,
+            'validation'=>$validation,
         ];
 
 
@@ -260,7 +275,4 @@ class AdminController extends BaseController
         $pdf->Output('Laporan_Zakat.pdf', 'I');
     }
 
-
-
- 
 }

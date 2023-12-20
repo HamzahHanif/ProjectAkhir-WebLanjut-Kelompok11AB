@@ -16,12 +16,12 @@
 
                     <div class="form-group">
                         <label for="nama">Nama</label>
-                        <input type="text" class="form-control" name="nama" placeholder="Nama" value="<?= $zakat['nama'] ?>">
+                        <input type="text" class="form-control" <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?> name="nama" placeholder="Nama" value="<?= $zakat['nama'] ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="noHP">Nomor HP / Whatsapp</label>
-                        <input type="text" class="form-control" name="noHP" placeholder="Hp/Whatsapp" value="<?= $zakat['noHP'] ?>">
+                        <input type="text" class="form-control" <?= ($validation->hasError('noHP')) ? 'is-invalid' : ''; ?> name="noHP" placeholder="Hp/Whatsapp" value="<?= $zakat['noHP'] ?>">
                     </div>
 
                     <div class="form-group">
@@ -34,7 +34,7 @@
 
                     <div class="form-group">
                         <label for="jumlahOrang">Jumlah Orang</label>
-                        <input type="text" class="form-control" name="jumlahOrang" placeholder="Jumlah Orang" value="<?= $zakat['jumlahOrang'] ?>">
+                        <input type="text" class="form-control" <?= ($validation->hasError('jumlahOrang')) ? 'is-invalid' : ''; ?> name="jumlahOrang" placeholder="Jumlah Orang" value="<?= $zakat['jumlahOrang'] ?>">
                     </div>
 
                     <div class="form-group">
@@ -44,7 +44,7 @@
 
                     <div class="form-group">
                         <label for="amil">Amil Zakat</label>
-                        <input type="text" class="form-control" name="amil" placeholder="Nama Amil Zakat" value="<?= $zakat['amil'] ?>">
+                        <input type="text" class="form-control" <?= ($validation->hasError('amil')) ? 'is-invalid' : ''; ?> name="amil" placeholder="Nama Amil Zakat" value="<?= $zakat['amil'] ?>">
                     </div>
 
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>

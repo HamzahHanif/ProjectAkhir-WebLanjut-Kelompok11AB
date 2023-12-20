@@ -7,30 +7,27 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Form Infaq Online</h4>
-<<<<<<< HEAD
-=======
                     <p class="card-description"> Belum Paham Cara Untuk Berinfaq Secara Online ? <a href="">Lihat Disini</a> </p>
->>>>>>> b7d97431423090a5b93e90eba26204d5bb8ae6e3
                     
                     <form class="forms-sample" action="<?= base_url('/user/store')?>" method="POST" enctype="multipart/form-data">
                       <div class="form-group">
                         <label for="exampleInputName1">Nama</label>
-                        <input type="text" class="form-control" name="nama" placeholder="Nama">
+                        <input type="text" class="form-control" <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?> name="nama" placeholder="Nama">
                       </div>
 
                       <div class="form-group">
                         <label for="exampleInputEmail3">Email</label>
-                        <input type="email" class="form-control" name="email" placeholder="Email">
+                        <input type="email" class="form-control" <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?> name="email" placeholder="Email">
                       </div>
 
                       <div class="form-group">
                         <label for="exampleInputPassword4">Nomor HP / Whatsapp</label>
-                        <input type="text" class="form-control" name="wa" placeholder="Hp/Whatsapp">
+                        <input type="text" class="form-control" <?= ($validation->hasError('wa')) ? 'is-invalid' : ''; ?> name="wa" placeholder="Hp/Whatsapp">
                       </div>
 
                       <div class="form-group">
                         <label for="exampleSelectGender">No Rekening</label>
-                        <select class="form-control" name="norek">
+                        <select class="form-control" <?= ($validation->hasError('norek')) ? 'is-invalid' : ''; ?> name="norek">
                           <option>[BCA] 12345678 A.n Masjid Al-Ikhlas</option>
                           <option>[BRI] 12345678 A.n Masjid Al-Ikhlas</option>
                         </select>
@@ -38,16 +35,16 @@
 
                       <div class="form-group">
                         <label for="exampleInputPassword4">Jumlah Infaq</label>
-                        <input type="text" class="form-control" name="jumlah" placeholder="Jumlah Infaq">
+                        <input type="text" class="form-control" <?= ($validation->hasError('jumlah')) ? 'is-invalid' : ''; ?> name="jumlah" placeholder="Jumlah Infaq">
                       </div>
 
                       <div class="form-group">
-                          <label>Bukti Pembayaran</label>
-                          <div class="input-group col-xs-12">
-                              <input type="file" name="foto" class="form-control file-upload-info" placeholder="Upload Image">
-                          </div>
+                        <label>Bukti Pembayaran</label>
+                        <input type="file" name="foto" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                          <input type="file" name="foto" class="form-control file-upload-info" <?= ($validation->hasError('foto')) ? 'is-invalid' : ''; ?> placeholder="Upload Image">
+                        </div>
                       </div>
-
 
                       <div class="form-group">
                         <label for="exampleTextarea1">Pesan</label>

@@ -8,6 +8,7 @@
                 <h4 class="card-title">Form Infaq</h4>
                 <p class="card-description"></p>
 
+                <!-- Check if 'id' key exists in $zakat array -->
                 <?php if (isset($infaq['id'])): ?>
                     <form class="forms-sample" action="<?= base_url('/user/' . $infaq['id']) ?>" method="POST" enctype="multipart/form-data">
                         <?= csrf_field() ?>
@@ -15,27 +16,27 @@
 
                     <div class="form-group">
                         <label for="nama">Nama</label>
-                        <input type="text" class="form-control" name="nama" placeholder="Nama" value="<?= $infaq['nama'] ?>">
+                        <input type="text" class="form-control" <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?> name="nama" placeholder="Nama" value="<?= $infaq['nama'] ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" placeholder="Email" value="<?= $infaq['email'] ?>">
+                        <input type="email" class="form-control" <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?> name="email" placeholder="Email" value="<?= $infaq['email'] ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="wa">Nomor HP / Whatsapp</label>
-                        <input type="text" class="form-control" name="wa" placeholder="Hp/Whatsapp" value="<?= $infaq['wa'] ?>">
+                        <input type="text" class="form-control" <?= ($validation->hasError('wa')) ? 'is-invalid' : ''; ?> name="wa" placeholder="Hp/Whatsapp" value="<?= $infaq['wa'] ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="jumlah">Jumlah infaq</label>
-                        <input type="text" class="form-control" name="jumlah" placeholder="Jumlah Infaq" value="<?= $infaq['jumlah'] ?>">
+                        <input type="text" class="form-control" <?= ($validation->hasError('jumlah')) ? 'is-invalid' : ''; ?> name="jumlah" placeholder="Jumlah Infaq" value="<?= $infaq['jumlah'] ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="norek">No Rekening</label>
-                        <select class="form-control" name="norek">
+                        <select class="form-control" <?= ($validation->hasError('norek')) ? 'is-invalid' : ''; ?> name="norek">
                             <option <?= ($infaq['norek'] == 'BCA') ? 'selected' : '' ?>>[BCA] 12345678 A.n Masjid Al-Ikhlas</option>
                             <option <?= ($infaq['norek'] == 'BRI') ? 'selected' : '' ?>>[BRI] 12345678 A.n Masjid Al-Ikhlas</option>
                         </select>

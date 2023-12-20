@@ -36,8 +36,16 @@ class UserController extends BaseController
     {
     $infaq = $this->infaqModel->getInfaq();
 
+    if (session('validation') != null){
+        $validation = session('validation');
+    }else{
+        $validation = \Config\Services::validation();
+    }
+
     $data = [
+        'title' => 'User Infaq',
         'infaq' => $infaq,
+        'validation' => $validation,
     ];
 
     return view('user/infaq', $data);
@@ -46,29 +54,19 @@ class UserController extends BaseController
     public function store(){
     
         
-        // $path = 'assets/uploads/img/' ;
-
-        // $uploadedFoto = $this->request->getFile('foto');
-
-        // $name = $uploadedFoto->getRandomName();
-        
-
-        // if ($uploadedFoto->isValid() && !$uploadedFoto->hasMoved()) {
-        //     $uploadedFoto->move($path, $name);
-        //     $foto = $name;
-        // }
-
-        $path = 'assets/uploads/img/';
+        $path = 'assets/uploads/img/' ;
 
         $uploadedFoto = $this->request->getFile('foto');
-
+        
         $name = $uploadedFoto->getRandomName();
+        
 
-        if($uploadedFoto->move($path, $name))
-        {
-            $foto = base_url($path. $name);
+        if ($uploadedFoto->isValid() && !$uploadedFoto->hasMoved()) {
+            $uploadedFoto->move($path, $name);
+            $foto = $name;
         }
 
+    
         $nama = $this->request->getPost('nama');
         $email = $this->request->getPost('email');
         $wa = $this->request->getPost('wa');
@@ -93,7 +91,7 @@ class UserController extends BaseController
             'wa' =>$this->request->getVar('wa'),
             'jumlah' => $this->request->getVar('jumlah'),
             'norek' =>$this->request->getVar('norek'),
-            'foto'  => $uploadedFoto,
+            'foto'  => $foto,
             'pesan' =>$this->request->getVar('pesan'),
         ]);
         session()->setFlashdata('success', 'Berhasil Berinfaq');
@@ -105,8 +103,17 @@ class UserController extends BaseController
     // edit delete infaq
     public function edit($id){
         $infaq =$this->infaqModel->getInfaq($id);
+
+        if (session('validation') != null){
+            $validation = session('validation');
+        }else{
+            $validation = \config\Services::validation();
+        }
+
         $data = [
+            'title' => 'Edit Infaq',
             'infaq'=>$infaq,
+            'validation' => $validation,
         ];
 
 
@@ -143,20 +150,18 @@ class UserController extends BaseController
     public function destroyInfaq($id)
     {
         $result = $this->infaqModel->deleteInfaq($id);
+
         if(!$result){
             return redirect()->back()->with('error', 'Gagal Menghapus Data');
         }
+
         return redirect()->to(base_url('/user/index'))
             ->with('success', 'Berhasil Menghapus Data');
-
-            if ($result) {
-                session()->setFlashdata('success', 'Data berhasil dihapus.');
-            } else {
-                session()->setFlashdata('error', 'Gagal menghapus data.');
-            }
+            
         }
+            
+        
     
-
     //cetak laporan infaq
     public function cetakLaporanInfaq()
     {

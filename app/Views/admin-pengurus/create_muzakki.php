@@ -10,17 +10,17 @@
         <form class="forms-sample" action="<?= base_url('/admin-pengurus/store') ?>" method="POST" enctype="multipart/form-data">
           <div class="form-group">
             <label for="nama">Nama</label>
-            <input type="text" class="form-control" name="nama" placeholder="Nama">
+            <input type="text" class="form-control" <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?> name="nama" placeholder="Nama">
           </div>
 
           <div class="form-group">
             <label for="noHP">Nomor HP / Whatsapp</label>
-            <input type="text" class="form-control" name="noHP" placeholder="Hp/Whatsapp">
+            <input type="text" class="form-control" <?= ($validation->hasError('noHP')) ? 'is-invalid' : ''; ?> name="noHP" placeholder="Hp/Whatsapp">
           </div>
 
           <div class="form-group">
             <label for="selectBentukZakat">Bentuk Zakat</label>
-            <select class="form-control" name="selectBentukZakat" id="selectBentukZakat">
+            <select class="form-control" <?= ($validation->hasError('selectBentukZakat')) ? 'is-invalid' : ''; ?> name="selectBentukZakat" id="selectBentukZakat">
               <option value="Beras">Beras</option>
               <option value="Uang Tunai">Uang Tunai</option>
             </select>
@@ -28,17 +28,17 @@
 
           <div class="form-group">
             <label for="jumlahOrang">Jumlah Orang</label>
-            <input type="text" class="form-control" name="jumlahOrang" id="jumlahOrang" placeholder="Jumlah Orang">
+            <input type="text" class="form-control" <?= ($validation->hasError('jumlahOrang')) ? 'is-invalid' : ''; ?> name="jumlahOrang" id="jumlahOrang" placeholder="Jumlah Orang">
           </div>
 
           <div class="form-group">
             <label for="jumlahZakat">Jumlah Zakat</label>
-            <input type="text" class="form-control" name="jumlahZakat" id="jumlahZakat" placeholder="Jumlah Zakat" readonly>
+            <input type="text" class="form-control" name="jumlahZakat" id="jumlahZakat" placeholder="Jumlah Zakat">
           </div>
 
           <div class="form-group">
             <label for="amil">Amil Zakat</label>
-            <input type="text" class="form-control" name="amil" placeholder="Nama Amil Zakat">
+            <input type="text" class="form-control" <?= ($validation->hasError('amil')) ? 'is-invalid' : ''; ?> name="amil" placeholder="Nama Amil Zakat">
           </div>
 
           <button type="submit" class="btn btn-primary mr-2">Submit</button>
@@ -50,11 +50,11 @@
 </div>
 
 <script>
-  document.getElementById('selectBentukZakat').addEventListener('change', function () {
+  document.getElementById('selectBentukZakat').addEventListener('change', function() {
     updateJumlahZakat();
   });
 
-  document.getElementById('jumlahOrang').addEventListener('input', function () {
+  document.getElementById('jumlahOrang').addEventListener('input', function() {
     updateJumlahZakat();
   });
 
