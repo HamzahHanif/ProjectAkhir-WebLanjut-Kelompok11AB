@@ -7,6 +7,10 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Form Infaq Online</h4>
+<<<<<<< HEAD
+=======
+                    <p class="card-description"> Belum Paham Cara Untuk Berinfaq Secara Online ? <a href="">Lihat Disini</a> </p>
+>>>>>>> b7d97431423090a5b93e90eba26204d5bb8ae6e3
                     
                     <form class="forms-sample" action="<?= base_url('/user/store')?>" method="POST" enctype="multipart/form-data">
                       <div class="form-group">

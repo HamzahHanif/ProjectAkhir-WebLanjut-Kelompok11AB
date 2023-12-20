@@ -24,6 +24,10 @@ $routes->post('/user/store', [UserController::class, 'store']);
 $routes->get('/user/(:any)/edit_infaq',[UserController::class, 'edit']);
 $routes->put('/user/(:any)',[UserController::class, 'update']);
 $routes -> delete('/user/(:any)', [UserController::class, 'destroyInfaq']);
+//cetak laporan infaq
+$routes->get('/admin-pengurus/cetak-laporan-infaq', [UserController::class, 'cetakLaporanInfaq']);
+
+
 
 #admin-pengurus
 $routes->get('/admin-pengurus',[AdminController::class, 'index']);
@@ -34,6 +38,8 @@ $routes->post('/admin-pengurus/store', [AdminController::class, 'store']);
 $routes->get('/admin-pengurus/(:any)/edit_data_muzakki',[AdminController::class, 'edit']);
 $routes->put('/admin-pengurus/(:any)',[AdminController::class, 'update']);
 $routes -> delete('/admin-pengurus/(:any)', [AdminController::class, 'destroyZakat']);
+//cetak laporan
+$routes->get('/admin-pengurus/cetak-laporan', [AdminController::class, 'cetakLaporan']);
 
 
 #super-admin

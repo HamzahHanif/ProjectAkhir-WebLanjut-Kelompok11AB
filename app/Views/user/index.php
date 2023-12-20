@@ -21,6 +21,7 @@
                     <p>
                     Ingin Berinfaq ? <a href="<?= base_url('/user/create-infaq'); ?>">Klik Disini</a>
                     </p>
+                    
                     <div class="table-responsive">
                       <table class="table table-bordered">
                         <thead>
@@ -52,6 +53,7 @@
                       <?php if( in_groups('super-admin')) : ?>
                     <p>
                     <a href="<?= base_url('/user/create-infaq')?>" class="btn btn-primary btn-fw">Tambah Data Infaq</a>
+                    <a href="<?= base_url('admin-pengurus/cetak-laporan-infaq')?>" class="btn btn-success btn-fw">Cetak Laporan</a>
                     </p>
                     <div class="table-responsive">
                       <table class="table table-bordered">
@@ -125,7 +127,9 @@
                       <?php if( in_groups('admin-pengurus')) : ?>
                     <p>
                     <a href="<?= base_url('/user/create-infaq')?>" class="btn btn-primary btn-fw">Tambah Data Infaq</a>
+                    <a href="<?= base_url('admin-pengurus/cetak-laporan-infaq')?>" class="btn btn-success btn-fw">Cetak Laporan</a>
                     </p>
+                    
                     <div class="table-responsive">
                       <table class="table table-bordered">
                         <thead>
