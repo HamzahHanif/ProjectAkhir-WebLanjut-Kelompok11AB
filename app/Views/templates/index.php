@@ -8,6 +8,8 @@
     <!-- plugins:css -->
     <link rel="stylesheet" href="<?= base_url(); ?>/../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/../../assets/vendors/css/vendor.bundle.base.css">
+    
+
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/vendors/jvectormap/jquery-jvectormap.css">

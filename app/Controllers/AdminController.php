@@ -79,6 +79,9 @@ class AdminController extends BaseController
             'amil'  => $this->request->getVar('amil'),
         ];
 
+        // Set flash message
+        session()->setFlashdata('success', 'Data berhasil ditambahkan.');
+
 
         return redirect()->to('admin-pengurus/index');
 
@@ -119,6 +122,12 @@ class AdminController extends BaseController
             ->with('error','Gagal Menyimpan Data');
         }
 
+        if ($result) {
+            session()->setFlashdata('success', 'Data berhasil diperbarui.');
+        } else {
+            session()->setFlashdata('error', 'Gagal memperbarui data.');
+        }
+
 
         return redirect()->to(base_url('/admin-pengurus/index'));
 
@@ -133,6 +142,12 @@ class AdminController extends BaseController
         }
         return redirect()->to(base_url('/admin-pengurus/index'))
             ->with('success', 'Berhasil Menghapus Data');
+
+            if ($result) {
+                session()->setFlashdata('success', 'Data berhasil dihapus.');
+            } else {
+                session()->setFlashdata('error', 'Gagal menghapus data.');
+            }
     }
 
 

@@ -7,7 +7,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Form Infaq Online</h4>
-                    <p class="card-description"> Belum Paham Cara Untuk Berinfaq Secara Online ? <a href="">Lihat Disini</a> </p>
+                    
                     <form class="forms-sample" action="<?= base_url('/user/store')?>" method="POST" enctype="multipart/form-data">
                       <div class="form-group">
                         <label for="exampleInputName1">Nama</label>
@@ -38,12 +38,12 @@
                       </div>
 
                       <div class="form-group">
-                        <label>Bukti Pembayaran</label>
-                        <input type="file" name="foto" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                          <input type="file" name="foto" class="form-control file-upload-info" placeholder="Upload Image">
-                        </div>
+                          <label>Bukti Pembayaran</label>
+                          <div class="input-group col-xs-12">
+                              <input type="file" name="foto" class="form-control file-upload-info" placeholder="Upload Image">
+                          </div>
                       </div>
+
 
                       <div class="form-group">
                         <label for="exampleTextarea1">Pesan</label>

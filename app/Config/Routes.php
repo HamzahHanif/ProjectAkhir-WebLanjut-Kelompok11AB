@@ -39,6 +39,7 @@ $routes -> delete('/admin-pengurus/(:any)', [AdminController::class, 'destroyZak
 #super-admin
 $routes->get('/super-admin/index',[SuperController::class, 'index']);
 $routes->get('/super-admin/index', 'SuperController::index');
+$routes->get('/super-admin/create',[SuperController::class, 'createadmin']);
 
 
 

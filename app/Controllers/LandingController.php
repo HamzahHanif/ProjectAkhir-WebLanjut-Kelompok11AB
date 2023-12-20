@@ -9,15 +9,6 @@ use App\Models\ZakatModel;
 
 class LandingController extends BaseController
 {
-    // public function cihuy()
-    // {
-    //     $data = [
-    //         'infaq' => [],
-    //     ];
-
-    //     return view("user/index", $data);
-    // }
-
     public function index()
     {   $userModel = new UserModel();
         $infaqModel = new InfaqModel();
@@ -27,7 +18,6 @@ class LandingController extends BaseController
         $totalInfaq = $infaqModel->getTotalInfaq();
         $totalUsers = $userModel->getTotalUsers();
 
-        // Kemudian Anda dapat memasukkan $totalUsers ke dalam data yang akan dikirimkan ke view
         $data['totalUsers'] = $totalUsers;
         $data['totalZakatByBentuk'] = $totalZakatByBentuk;
         $data['totalInfaq'] = $totalInfaq;

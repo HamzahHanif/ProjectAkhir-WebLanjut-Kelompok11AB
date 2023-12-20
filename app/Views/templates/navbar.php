@@ -29,17 +29,6 @@
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
                   <h6 class="p-3 mb-0">Menu</h6>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-account text-primary"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Profile</p>
-                    </div>
-                  </a>
-                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item" href="\logout">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">

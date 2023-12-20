@@ -8,7 +8,6 @@
                 <h4 class="card-title">Form Infaq</h4>
                 <p class="card-description"></p>
 
-                <!-- Check if 'id' key exists in $zakat array -->
                 <?php if (isset($infaq['id'])): ?>
                     <form class="forms-sample" action="<?= base_url('/user/' . $infaq['id']) ?>" method="POST" enctype="multipart/form-data">
                         <?= csrf_field() ?>

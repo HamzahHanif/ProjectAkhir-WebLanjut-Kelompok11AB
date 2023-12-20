@@ -32,6 +32,11 @@ class SuperController extends BaseController
     return view('/super-admin/tambah', $data);            
     }
 
+    public function createadmin()
+    {
+        return view('super-admin/createuser');
+    }
+
     public function index()
     {
         

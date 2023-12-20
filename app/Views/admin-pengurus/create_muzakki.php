@@ -33,7 +33,7 @@
 
           <div class="form-group">
             <label for="jumlahZakat">Jumlah Zakat</label>
-            <input type="text" class="form-control" name="jumlahZakat" id="jumlahZakat" placeholder="Jumlah Zakat">
+            <input type="text" class="form-control" name="jumlahZakat" id="jumlahZakat" placeholder="Jumlah Zakat" readonly>
           </div>
 
           <div class="form-group">
@@ -50,11 +50,11 @@
 </div>
 
 <script>
-  document.getElementById('selectBentukZakat').addEventListener('change', function() {
+  document.getElementById('selectBentukZakat').addEventListener('change', function () {
     updateJumlahZakat();
   });
 
-  document.getElementById('jumlahOrang').addEventListener('input', function() {
+  document.getElementById('jumlahOrang').addEventListener('input', function () {
     updateJumlahZakat();
   });
 

@@ -45,19 +45,28 @@ class UserController extends BaseController
     public function store(){
     
         
-        $path = 'assets/uploads/img/' ;
+        // $path = 'assets/uploads/img/' ;
 
-        $foto = $this->request->getFile('foto');
-        
-        $name = $foto->getRandomName();
+        // $uploadedFoto = $this->request->getFile('foto');
+
+        // $name = $uploadedFoto->getRandomName();
         
 
-        if($foto->move($path, $name)){
-            $foto = base_url($path . $name);
+        // if ($uploadedFoto->isValid() && !$uploadedFoto->hasMoved()) {
+        //     $uploadedFoto->move($path, $name);
+        //     $foto = $name;
+        // }
+
+        $path = 'assets/uploads/img/';
+
+        $uploadedFoto = $this->request->getFile('foto');
+
+        $name = $uploadedFoto->getRandomName();
+
+        if($uploadedFoto->move($path, $name))
+        {
+            $foto = base_url($path. $name);
         }
-
-        $InfaqModel = new InfaqModel();
-        
 
         $nama = $this->request->getPost('nama');
         $email = $this->request->getPost('email');
@@ -83,9 +92,10 @@ class UserController extends BaseController
             'wa' =>$this->request->getVar('wa'),
             'jumlah' => $this->request->getVar('jumlah'),
             'norek' =>$this->request->getVar('norek'),
-            'foto'  => $foto,
+            'foto'  => $uploadedFoto,
             'pesan' =>$this->request->getVar('pesan'),
         ]);
+        session()->setFlashdata('success', 'Berhasil Berinfaq');
 
         return redirect()->to('/user/infaq');
 
@@ -119,6 +129,11 @@ class UserController extends BaseController
             return redirect()->back()->withInput()
             ->with('error','Gagal Menyimpan Data');
         }
+        if ($result) {
+            session()->setFlashdata('success', 'Data berhasil diperbarui.');
+        } else {
+            session()->setFlashdata('error', 'Gagal memperbarui data.');
+        }
 
 
         return redirect()->to(base_url('/user/index'));
@@ -132,7 +147,14 @@ class UserController extends BaseController
         }
         return redirect()->to(base_url('/user/index'))
             ->with('success', 'Berhasil Menghapus Data');
-    }
+
+            if ($result) {
+                session()->setFlashdata('success', 'Data berhasil dihapus.');
+            } else {
+                session()->setFlashdata('error', 'Gagal menghapus data.');
+            }
+        }
+    
 
     
 }

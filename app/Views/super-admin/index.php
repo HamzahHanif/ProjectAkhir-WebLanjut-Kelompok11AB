@@ -6,6 +6,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Data User</h4>
+                    
                     <!-- <p class="card-description"> Add class <code>.table-bordered</code>
                     </p> -->
                     <div class="table-responsive">
@@ -16,7 +17,6 @@
                             <th> Nama Pengguna </th>
                             <th> Email </th>
                             <th> Role </th>
-                            <th> Aksi </th>
                           </tr>
                         </thead>
                         <tbody>
@@ -29,9 +29,6 @@
                             <td><?= $user->username ?></td>
                             <td><?= $user->email?></td>
                             <td><?= $user->name ?></td >
-                            <td>
-
-                            </td>
                           </tr>
                           <?php
                         }
